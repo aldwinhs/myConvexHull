@@ -1,3 +1,4 @@
+
 import numpy as np 
 import pandas as pd 
 import matplotlib.pyplot as plt 
@@ -16,16 +17,16 @@ print(
     """
 )
 
-input = int(input("Pilihan: "))
-while (not(input == 1 or input == 2 or input == 3)):
+opsi = int(input("Pilihan: "))
+while (not(opsi == 1 or opsi == 2 or opsi == 3)):
     print("Masukan salah")
-    input = int(input("Pilihan: "))
+    opsi = int(input("Pilihan: "))
 
-if(input==1):
+if(opsi==1):
     data = datasets.load_iris() 
-elif(input==2):
+elif(opsi==2):
     data = datasets.load_wine()
-elif(input==3):
+elif(opsi==3):
     data = datasets.load_breast_cancer
 
 #create a DataFrame 
@@ -36,17 +37,19 @@ print("Atributes:")
 for i in range(len(data.feature_names)):
     print(i+1, data.feature_names[i])
 
-inputx = int(input("X: "))
-inputy = int(input("Y: "))
+print()
+
+inputAbsis = int(input("Pilihan X: "))
+inputOrdinat = int(input("Pilihan Y: "))
 
 plt.figure(figsize = (10, 6))
 colors = ['b','r','g']
-plt.title(data.feature_names[inputx-1]+" vs "+data.feature_names[inputy-1])
-plt.xlabel(data.feature_names[inputx-1])
-plt.ylabel(data.feature_names[inputy-1])
+plt.title(data.feature_names[inputAbsis-1]+" vs "+data.feature_names[inputOrdinat-1])
+plt.xlabel(data.feature_names[inputAbsis-1])
+plt.ylabel(data.feature_names[inputOrdinat-1])
 for i in range(len(data.target_names)):
     bucket = df[df['Target'] == i]
-    bucket = bucket.iloc[:,[inputx-1,inputy-1]].values
+    bucket = bucket.iloc[:,[inputAbsis-1,inputOrdinat-1]].values
     bucket = bucket.tolist() #membuat numpy array menjadi list
     hull = myConvexHull.myConvexHull(bucket) 
     hull = np.asarray(hull) #membuat list menjadi numpy array
