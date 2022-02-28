@@ -1,0 +1,4 @@
+dataset yang telah dites
+- iris
+- wine
+- breast_cancer(pada main.py)

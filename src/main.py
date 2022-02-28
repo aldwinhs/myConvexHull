@@ -27,7 +27,7 @@ if(opsi==1):
 elif(opsi==2):
     data = datasets.load_wine()
 elif(opsi==3):
-    data = datasets.load_breast_cancer
+    data = datasets.load_breast_cancer()
 
 #create a DataFrame 
 df = pd.DataFrame(data.data, columns=data.feature_names) 
